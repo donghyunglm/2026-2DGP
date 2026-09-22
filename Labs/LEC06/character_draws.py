@@ -5,6 +5,9 @@ character = load_image('character.png')
 # 실습 과제 진행
 def move_circle():
     print("circle")
+    clear_canvas()
+    character.draw(400,300)
+    update_canvas()
     pass
 def move_rectangle():
     print("rectangle")
