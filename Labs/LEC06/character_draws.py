@@ -28,20 +28,21 @@ def draw_right():
         draw_character(750, y)
     pass
 
+def draw_bottom():
+    for x in range(750, 50, -5):
+        draw_character(x, 50)
+
 def draw_left():
     for y in range(50, 550, 5):
         draw_character(50, y)
 
-def draw_bottom():
-    for x in range(750, 50, -5):
-        draw_character(x, 50)
 
 def draw_rectangle():
     print("rectangle")
     draw_top()
     draw_right()
-    draw_left()
     draw_bottom()
+    draw_left()
     pass
 
 def draw_line(x0, y0, x1, y1):
