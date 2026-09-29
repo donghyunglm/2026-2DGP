@@ -9,14 +9,19 @@ def draw_circle():
         rad = math.radians(degree)
         x = 400 + 200 * math.cos(rad)
         y = 300 + 200 * math.sin(rad)
-        clear_canvas()
-        character.draw(x, y)
-        update_canvas()
-        delay(0.1)
+        draw_character(x,y)
+        pass
 
 def draw_top():
     print('TOP')
-    pass
+    for x in range(50, 750, 5):
+        draw_character(x,550)
+
+def draw_character(x,y):
+    clear_canvas()
+    character.draw(x,y)
+    update_canvas()
+    delay(0.1)
 
 def draw_right():
     print('RIGHT')
