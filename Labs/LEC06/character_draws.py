@@ -33,14 +33,14 @@ def draw_left():
         draw_character(50, y)
 
 def draw_bottom():
-    print('BOTTOM')
-    pass
+    for x in range(750, 50, -5):
+        draw_character(x, 50)
 
 def draw_rectangle():
     print("rectangle")
     #draw_top()
     #draw_right()
-    draw_left()
+    #draw_left()
     draw_bottom()
     pass
 
