@@ -29,8 +29,8 @@ def draw_right():
     pass
 
 def draw_left():
-    print('LEFT')
-    pass
+    for y in range(50, 550, 5):
+        draw_character(50, y)
 
 def draw_bottom():
     print('BOTTOM')
@@ -39,9 +39,9 @@ def draw_bottom():
 def draw_rectangle():
     print("rectangle")
     #draw_top()
-    draw_right()
-    draw_bottom()
+    #draw_right()
     draw_left()
+    draw_bottom()
     pass
 
 def draw_triangle():
