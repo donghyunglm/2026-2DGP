@@ -44,6 +44,8 @@ def draw_rectangle():
     draw_bottom()
     pass
 
+def draw_line(x0, y0, x1, y1):
+
 def draw_triangle():
     print("triangle")
 
