@@ -5,18 +5,19 @@ open_canvas(800,600)
 character = load_image('character.png')
 # 실습 과제 진행
 def move_circle():
-    for degree in range(360):
+    for degree in range(0,360,5):
         theta = math.radians(degree)
         x = 400 + 200 * math.cos(theta)
         y = 300 + 200 * math.sin(theta)
         clear_canvas()
         character.draw(x, y)
         update_canvas()
-        delay(0.01)
+        delay(0.1)
 
 def move_rectangle():
     print("rectangle")
     pass
+
 def move_triangle():
     print("triangle")
 
