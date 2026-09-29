@@ -4,7 +4,9 @@ open_canvas(800,600)
 character = load_image('character.png')
 # 실습 과제 진행
 
-
+theta = math.radians(degree)
+x = 400 + 200 * math.cos(theta)
+y = 300 + 200 * math.sin(theta)
 
 def move_circle():
     print("circle")
