@@ -9,14 +9,10 @@ def move_circle():
         theta = math.radians(degree)
         x = 400 + 200 * math.cos(theta)
         y = 300 + 200 * math.sin(theta)
-
-def move_circle():
-    print("circle")
-    clear_canvas()
-    character.draw(400,300)
-    update_canvas()
-    delay(1)
-    pass
+        clear_canvas()
+        character.draw(x, y)
+        update_canvas()
+        delay(0.01)
 
 def move_rectangle():
     print("rectangle")
