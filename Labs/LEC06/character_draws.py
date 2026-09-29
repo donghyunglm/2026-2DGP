@@ -1,7 +1,8 @@
 from pico2d import *
+import math
 open_canvas(800,600)
 
-character = load_image('character.png')
+character = load_image('character.png')ㅌ``
 # 실습 과제 진행
 
 theta = math.radians(degree)
