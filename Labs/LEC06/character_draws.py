@@ -51,10 +51,15 @@ def draw_line(x0, y0, x1, y1):
         x = x0 + (x1 - x0) * t
         y = y0 + (y1 - y0) * t
         draw_character(x, y)
+
 def draw_triangle_bottom():
     print("triangle - bottom (A -> B)")
     draw_line(100, 100, 700, 100)
-    
+
+def draw_triangle_right_up():
+    print("triangle - right up (B -> C)")
+    draw_line(700, 100, 400, 500)
+
 def draw_triangle():
     print("triangle")
     draw_triangle_bottom()
