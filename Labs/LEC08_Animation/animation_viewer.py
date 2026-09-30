@@ -17,6 +17,7 @@ frame = 0
 repeat_count = 0
 action = 0
 action_y = [300, 200, 100, 0]
+action_name = ['걷기', '달리기', '점프', '공격']
 frame_count = [8, 8, 6, 6]
 frame_interval = [0.10, 0.06, 0.12, 0.08]
 previous_time = get_time()
@@ -30,6 +31,7 @@ while running:
 		if current_time - pause_start >= 1:
 			paused = False
 			action = (action + 1) % len(action_y)
+			print(f'다음 동작: {action_name[action]}')
 			frame = 0
 			repeat_count = 0
 			previous_time = current_time
@@ -37,9 +39,11 @@ while running:
 		previous_time = current_time
 		if frame == frame_count[action] - 1:
 			repeat_count += 1
+			print(f'{action_name[action]} 완료: {repeat_count}회')
 			if repeat_count == 5:
 				paused = True
 				pause_start = current_time
+				print(f'{action_name[action]} 정지 시작')
 			else:
 				frame = 0
 		else:
