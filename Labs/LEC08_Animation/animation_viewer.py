@@ -1,10 +1,16 @@
 from pathlib import Path
+import sys
 
 from pico2d import *
 
 folder = Path(__file__).resolve().parent
 open_canvas(800, 600)
 character = load_image(str(folder / 'image_sheet.png'))
+if character.w != 800 or character.h != 400:
+	print(f'image_sheet.png 크기 오류: 실제 {character.w}x{character.h}, 필요 800x400')
+	close_canvas()
+	sys.exit(1)
+
 ground = load_image(str(folder / 'robot_ground.png'))
 
 character_x = 400
