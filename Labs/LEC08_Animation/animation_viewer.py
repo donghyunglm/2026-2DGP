@@ -13,14 +13,16 @@ character_height = 400
 ground_x = 400
 ground_y = 31
 character_y = ground_y + ground.h // 2 + character_height // 2
+frame = 0
 
 running = True
 while running:
 	clear_canvas()
 	ground.draw(ground_x, ground_y)
-	character.clip_draw(0, 300, 100, 100, character_x, character_y, character_width, character_height)
+	character.clip_draw(frame * 100, 300, 100, 100, character_x, character_y, character_width, character_height)
 	update_canvas()
-	delay(0.01)
+	frame = (frame + 1) % 8
+	delay(0.05)
 
 	for event in get_events():
 		if event.type == SDL_QUIT:
