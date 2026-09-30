@@ -20,18 +20,30 @@ action_y = [300, 200, 100, 0]
 frame_count = [8, 8, 6, 6]
 frame_interval = 0.05
 previous_time = get_time()
+paused = False
+pause_start = 0
 
 running = True
 while running:
 	current_time = get_time()
-	if current_time - previous_time >= frame_interval:
+	if paused:
+		if current_time - pause_start >= 1:
+			paused = False
+			action = (action + 1) % len(action_y)
+			frame = 0
+			repeat_count = 0
+			previous_time = current_time
+	elif current_time - previous_time >= frame_interval:
 		previous_time = current_time
-		frame = (frame + 1) % frame_count[action]
-		if frame == 0:
+		if frame == frame_count[action] - 1:
 			repeat_count += 1
 			if repeat_count == 5:
-				repeat_count = 0
-				action = (action + 1) % len(action_y)
+				paused = True
+				pause_start = current_time
+			else:
+				frame = 0
+		else:
+			frame += 1
 
 	clear_canvas()
 	ground.draw(ground_x, ground_y)
