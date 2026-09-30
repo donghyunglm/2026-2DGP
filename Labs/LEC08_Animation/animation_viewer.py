@@ -4,13 +4,14 @@ from pico2d import *
 
 folder = Path(__file__).resolve().parent
 open_canvas(800, 600)
-image_sheet = load_image(str(folder / 'image_sheet.png'))
+character = load_image(str(folder / 'image_sheet.png'))
 ground = load_image(str(folder / 'robot_ground.png'))
 
 running = True
 while running:
 	clear_canvas()
 	ground.draw(400, 31)
+	character.clip_draw(0, 300, 100, 100, 400, 300)
 	update_canvas()
 	delay(0.01)
 
