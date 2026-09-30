@@ -4,14 +4,26 @@ import sys
 from pico2d import *
 
 folder = Path(__file__).resolve().parent
+image_sheet_path = folder / 'image_sheet.png'
+ground_path = folder / 'robot_ground.png'
+missing_files = []
+if not image_sheet_path.is_file():
+	missing_files.append(image_sheet_path)
+if not ground_path.is_file():
+	missing_files.append(ground_path)
+if missing_files:
+	for missing_file in missing_files:
+		print(f'파일을 찾을 수 없습니다: {missing_file}')
+	sys.exit(1)
+
 open_canvas(800, 600)
-character = load_image(str(folder / 'image_sheet.png'))
+character = load_image(str(image_sheet_path))
 if character.w != 800 or character.h != 400:
 	print(f'image_sheet.png 크기 오류: 실제 {character.w}x{character.h}, 필요 800x400')
 	close_canvas()
 	sys.exit(1)
 
-ground = load_image(str(folder / 'robot_ground.png'))
+ground = load_image(str(ground_path))
 
 character_x = 400
 character_width = 400
