@@ -14,6 +14,7 @@ ground_x = 400
 ground_y = 31
 character_y = ground_y + ground.h // 2 + character_height // 2
 frame = 0
+repeat_count = 0
 action = 0
 action_y = [300, 200, 100, 0]
 frame_count = [8, 8, 6, 6]
@@ -26,7 +27,10 @@ while running:
 	update_canvas()
 	frame = (frame + 1) % frame_count[action]
 	if frame == 0:
-		action = (action + 1) % len(action_y)
+		repeat_count += 1
+		if repeat_count == 5:
+			repeat_count = 0
+			action = (action + 1) % len(action_y)
 	delay(0.05)
 
 	for event in get_events():
@@ -34,5 +38,5 @@ while running:
 			running = False
 		elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
 			running = False
-
+ 
 close_canvas()
