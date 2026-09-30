@@ -10,6 +10,7 @@ ground = load_image(str(folder / 'robot_ground.png'))
 running = True
 while running:
 	clear_canvas()
+	ground.draw(400, 31)
 	update_canvas()
 	delay(0.01)
 
