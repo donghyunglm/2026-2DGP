@@ -29,6 +29,9 @@ while running:
 	elif action == 'jump':
 		action_y = 100
 		frame_count = 6
+	elif action == 'attack':
+		action_y = 0
+		frame_count = 6
 	character.clip_draw(frame * 100, action_y, 100, 100, character_x, character_y, character_width, character_height)
 	update_canvas()
 	frame = (frame + 1) % frame_count
@@ -48,6 +51,9 @@ while running:
 				frame = 0
 			elif event.key == SDLK_3:
 				action = 'jump'
+				frame = 0
+			elif event.key == SDLK_4:
+				action = 'attack'
 				frame = 0
 
 close_canvas()
