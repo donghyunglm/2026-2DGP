@@ -14,46 +14,25 @@ ground_x = 400
 ground_y = 31
 character_y = ground_y + ground.h // 2 + character_height // 2
 frame = 0
-action = 'walk'
+action = 0
+action_y = [300, 200, 100, 0]
+frame_count = [8, 8, 6, 6]
 
 running = True
 while running:
 	clear_canvas()
 	ground.draw(ground_x, ground_y)
-	if action == 'walk':
-		action_y = 300
-		frame_count = 8
-	elif action == 'run':
-		action_y = 200
-		frame_count = 8
-	elif action == 'jump':
-		action_y = 100
-		frame_count = 6
-	elif action == 'attack':
-		action_y = 0
-		frame_count = 6
-	character.clip_draw(frame * 100, action_y, 100, 100, character_x, character_y, character_width, character_height)
+	character.clip_draw(frame * 100, action_y[action], 100, 100, character_x, character_y, character_width, character_height)
 	update_canvas()
-	frame = (frame + 1) % frame_count
+	frame = (frame + 1) % frame_count[action]
+	if frame == 0:
+		action = (action + 1) % len(action_y)
 	delay(0.05)
 
 	for event in get_events():
 		if event.type == SDL_QUIT:
 			running = False
-		elif event.type == SDL_KEYDOWN:
-			if event.key == SDLK_ESCAPE:
-				running = False
-			elif event.key == SDLK_1:
-				action = 'walk'
-				frame = 0
-			elif event.key == SDLK_2:
-				action = 'run'
-				frame = 0
-			elif event.key == SDLK_3:
-				action = 'jump'
-				frame = 0
-			elif event.key == SDLK_4:
-				action = 'attack'
-				frame = 0
+		elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
+			running = False
 
 close_canvas()
