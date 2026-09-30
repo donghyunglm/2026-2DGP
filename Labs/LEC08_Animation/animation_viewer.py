@@ -57,7 +57,16 @@ while running:
 	for event in get_events():
 		if event.type == SDL_QUIT:
 			running = False
-		elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
-			running = False
+		elif event.type == SDL_KEYDOWN:
+			if event.key == SDLK_ESCAPE:
+				running = False
+			elif event.key == SDLK_r:
+				action = 0
+				frame = 0
+				repeat_count = 0
+				paused = False
+				current_time = get_time()
+				previous_time = current_time
+				pause_start = current_time
 	delay(0.001)
 close_canvas()
