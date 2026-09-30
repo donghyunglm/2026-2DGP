@@ -11,7 +11,7 @@ running = True
 while running:
 	clear_canvas()
 	ground.draw(400, 31)
-	character.clip_draw(0, 300, 100, 100, 400, 300)
+	character.clip_draw(0, 300, 100, 100, 400, 300, 400, 400)
 	update_canvas()
 	delay(0.01)
 
