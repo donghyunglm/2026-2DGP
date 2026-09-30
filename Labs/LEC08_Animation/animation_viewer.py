@@ -22,11 +22,16 @@ while running:
 	ground.draw(ground_x, ground_y)
 	if action == 'walk':
 		action_y = 300
+		frame_count = 8
 	elif action == 'run':
 		action_y = 200
+		frame_count = 8
+	elif action == 'jump':
+		action_y = 100
+		frame_count = 6
 	character.clip_draw(frame * 100, action_y, 100, 100, character_x, character_y, character_width, character_height)
 	update_canvas()
-	frame = (frame + 1) % 8
+	frame = (frame + 1) % frame_count
 	delay(0.05)
 
 	for event in get_events():
@@ -40,6 +45,9 @@ while running:
 				frame = 0
 			elif event.key == SDLK_2:
 				action = 'run'
+				frame = 0
+			elif event.key == SDLK_3:
+				action = 'jump'
 				frame = 0
 
 close_canvas()
