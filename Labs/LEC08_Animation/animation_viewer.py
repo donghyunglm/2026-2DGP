@@ -7,11 +7,18 @@ open_canvas(800, 600)
 character = load_image(str(folder / 'image_sheet.png'))
 ground = load_image(str(folder / 'robot_ground.png'))
 
+character_x = 400
+character_width = 400
+character_height = 400
+ground_x = 400
+ground_y = 31
+character_y = ground_y + ground.h // 2 + character_height // 2
+
 running = True
 while running:
 	clear_canvas()
-	ground.draw(400, 31)
-	character.clip_draw(0, 300, 100, 100, 400, 300, 400, 400)
+	ground.draw(ground_x, ground_y)
+	character.clip_draw(0, 300, 100, 100, character_x, character_y, character_width, character_height)
 	update_canvas()
 	delay(0.01)
 
