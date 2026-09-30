@@ -18,7 +18,7 @@ repeat_count = 0
 action = 0
 action_y = [300, 200, 100, 0]
 frame_count = [8, 8, 6, 6]
-frame_interval = 0.05
+frame_interval = [0.10, 0.06, 0.12, 0.08]
 previous_time = get_time()
 paused = False
 pause_start = 0
@@ -33,7 +33,7 @@ while running:
 			frame = 0
 			repeat_count = 0
 			previous_time = current_time
-	elif current_time - previous_time >= frame_interval:
+	elif current_time - previous_time >= frame_interval[action]:
 		previous_time = current_time
 		if frame == frame_count[action] - 1:
 			repeat_count += 1
